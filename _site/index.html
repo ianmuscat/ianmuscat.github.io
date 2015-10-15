@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Blog &middot; Ian Muscat
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My Name is Ian, I am a technophile with a special interest in web technologies working and living on the island of <a href="https://en.wikipedia.org/wiki/Malta" target="_blank">Malta</a> <a href="/about">&hellip;</a></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Blog</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Ian Muscat</a>&nbsp;
+            <small>Sporadic Ramblings of a Technophile</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/08/04/share-simple-no-frills-sharing-buttons/">
+        'Share' – Simple, no-frills sharing buttons
+      </a>
+    </h1>
+
+    <small class="post-date">04 Aug 2015</small>
+
+    <p><img src="/public/img/2015-08-04-share-simple-no-frills-sharing-buttons/cover.jpg" alt="'Share' - Simple, no-frills sharing buttons" /></p>
+
+<p>I don’t understand why every sharing plugin or widget I’ve come across needs to be so complicated, load a ton of JavaScript and/or just be downright ugly.</p>
+
+<p>I decided to make my own super simple, no-frills sharing buttons.</p>
+
+<p>The icons are SVGs, so that avoids having another couple round-trips to the server and has the added benefit of playing nice with retina or other hi-DPI displays since they’re vectors. No server-side voodoo, all done in JavaScript. Since to me only Facebook, Twitter and (perhaps) Google+ are the only relevant social networks around, I’ve just limited it to the big three, but you can easily extend it to fit your requirements.</p>
+
+<p>If you want to use this, just make sure to swap out your site’s <em>postamble</em> (that’s the bit at the end) of your site’s <code>&lt;title&gt;</code> tag and substitute your Twitter username. You can also run it through a minifier to compress it further if you like.</p>
+
+<script src="https://gist.github.com/ianmuscat/46958b29ba38b9630b6f.js"></script>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/07/25/installing-google-firing-range/">
+        Installing Google Firing Range
+      </a>
+    </h1>
+
+    <small class="post-date">25 Jul 2015</small>
+
+    <p>Google Firing Range is a “test bed for web application security scanners, providing synthetic, wide coverage for an array of vulnerabilities”. It’s <a href="https://github.com/google/firing-range">available on GitHub</a> and also has a <a href="https://public-firing-range.appspot.com/">publicly available instance</a> on Google AppEngine.</p>
+
+<p>The testbed itself is great, but the project’s <code>README</code> mention’s nothing on how to install it, nor could I find any instructions on other sites. So just in case it will prove useful to you, here’s a short guide and a <a href="https://gist.github.com/ianmuscat/0ae912cb06b078b9f7c9">shell script</a> (I’ve only tested it on Ubuntu 14.04 LTS)</p>
+
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>Before you start, you need to install the Java JRE/JDK. If you need help getting that installed, head over to <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get">this neat article</a> by Digital Ocean.</p>
+
+<p>You’ll also need to install Apache Ant. Apache Ant is a tool that is used for automating software builds.</p>
+
+<pre><code>sudo apt-get install ant
+</code></pre>
+
+<h2 id="download-firing-range-and-its-depencancies">Download Firing Range and its depencancies</h2>
+<p>Once you have the Java JRE/JDK installed, clone the Git repository to a directory on your computer.</p>
+
+<pre><code>git clone https://github.com/google/firing-range.git
+</code></pre>
+
+<p>Since Firing Range is meant to run on Google App Engine, you’ll need to download and unzip the <a href="https://cloud.google.com/appengine/downloads">Google App Engine SDK for Java</a> in order to run it.</p>
+
+<p>Next you’ll need to set the path to the SDK in <code>build.xml</code>. Open up the file in your favourite editor.</p>
+
+<pre><code>nano firing-range/build.xml
+</code></pre>
+
+<p>Find the following line and change the location of the SDK to where ever you placed it on your computer.</p>
+
+<pre><code>&lt;property name="appengine.sdk" location="../.."/&gt;
+</code></pre>
+
+<p>Next, we’ll need to compile the project using Apache Ant. This will create a <code>war</code> directory which will contain the compiled application.</p>
+
+<pre><code>ant compile
+</code></pre>
+
+<p>That’s it! Now we just need to run the built-in server bundled with the Google App Engine SDK.</p>
+
+<pre><code>appengine-java-sdk-1.9.23/bindev_appserver.sh firing-range/war
+</code></pre>
+
+<p>You can also choose to change the address and port the server binds to. In the below example I’ve changed the binging of the web server to bind on all interfaces on port 8080.</p>
+
+<pre><code>appengine-java-sdk-1.9.23/bindev_appserver.sh --address=0.0.0.0 --port=8080 firing-range/war
+</code></pre>
+
+<h2 id="shell-script">Shell script</h2>
+<p>Here’s a shell script to do this automatically (tested on Ubuntu 14.04 LTS)</p>
+
+<script src="https://gist.github.com/ianmuscat/0ae912cb06b078b9f7c9.js"></script>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2013/05/16/supercharging-john-the-ripper-with-openmpi/">
+        Supercharging John the Ripper with OpenMPI
+      </a>
+    </h1>
+
+    <small class="post-date">16 May 2013</small>
+
+    <p><em>John the Ripper</em> (<em>John</em> for short) is an open source, multi-platform, best-of-breed password cracking tool – primarily, because it’s fast, versatile and highly customisable. John not only supports a wide variety of hashes, but also is able to accept a variety of customised rules and parameters.</p>
+
+<p>Unfortunately however, John doesn’t leverage the multicore CPU you have in your machine, since it is, by default, singlethreaded. As such, if you own a CPU that supports multithreading, John will probably end up run slower since it would only be working with an approximate maximum of half of the total CPU capacity of a single core.</p>
+
+<p>Fortunately, John can be made to run on multiple cores with multiple threads with OpenMPI. Yes, I am aware that this subject has been covered before, however, since I haven’t found anything online about setting this up from start to finish on a Mac running OS X 10.8 (Mountain Lion) I’m going to cover just that.<span id="more-29"></span></p>
+
+<div class="message">
+	<em>Note</em> &mdash; You should be able to follow pretty much the same procedure in Linux. It’s actually easier to set-up in Linux since the GCC compiler and OpenMPI might be installed already (they are if you are using BackTrack or Kali).
+</div>
+
+<h2 id="approach">Approach</h2>
+
+<p>We’ll need to install Apple’s Xcode, download the latest versions of both OpenMPI and John, enable a few flags, and compile OpenMPI and John from source. After we compile John, we’ll also be taking a brief look at another configuration we can use to enable John to compete for CPU time an not only make use of idle CPU cycles. Let’s jump right in!</p>
+
+<h2 id="step-1-downloading-xcode">Step 1 – Downloading Xcode</h2>
+
+<p>We’ll start off by downloading Apple’s Xcode. We’ll need Xcode in order to be able to install the GCC compiler out of the box. I’m sure you can install GCC without installing Xcode (it’s probably not that difficult) but for simplicity’s sake, we’ll be going with Xcode.</p>
+
+<p>In order to download Xcode, you’ll want to head over to the Mac App Store. On older versions of OS X, you can probably find a DMG file somewhere and install Xcode from there (you might run into some incompatibilities if you do this on older Macs).</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/01-download-xcode.jpg" alt="Screenshot of downloading Xcode from the App Store" /></p>
+
+<h2 id="step-2--installing-command-line-tools">Step 2 – Installing Command Line Tools</h2>
+
+<p>Once Xcode is downloaded and installed, go ahead and start it up. You should be greeted with a splash screen saying ‘Welcome to Xcode’. Navigate to <em>Xcode &gt; Preferences</em> in the top menu, or the usual <em>⌘</em>, for shortcut fans. In the <em>Preferences</em> window, navigate to the <em>Downloads</em> tab. There you should be able to download and install the <em>Command Line Tools</em> from within Xcode. Go ahead and click <em>Install</em>.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/02-download-command-line-tools.jpg" alt="Download Command Line Tools from within Xcode" /></p>
+
+<p>If you try to run the <code>make</code> command before we install Xcode and its Developer Command Line Tools you will get a <code>make: command not found</code> error. The <code>make</code> command invokes the compiler, and based on the <code>Makefile</code> (more on this later) the compiler will compile the source code into executable files.</p>
+
+<h2 id="step-3--compiling-and-installing-openmpi-from-source">Step 3 – Compiling and Installing OpenMPI from source</h2>
+
+<p>Now that we’ve got all the Command Line Tools installed, let’s compile and install OpenMPI. As far as I know you can’t download a binary version of OpenMPI the Mac. Compiling it from source is not too hard anyway. Download the OpenMPI source from <a href="http://www.open-mpi.org/software" title="Download OpenMPI">here</a> to get started. If you’re confused as to which file to download, go with the first one – it’s the latest version. Place the folder somewhere predictable. I placed it in my home directory and renamed it to <em>openmpi</em> make things simpler.</p>
+
+<p>If you haven’t yet fired up your Terminal, now’s the time to do so. <code>cd</code> into the directory with all the source code.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/03-cd-to-open-mpi-source-directory.jpg" alt="cd to the directory containing the OpenMPI source code" /></p>
+
+<p>Next, you’ll need to run <code>./configure --prefix=/usr/local</code> . This will run a configuration application that will configure OpenMPI before actually compiling it. We’ll be using the <code>/usr/local</code> folder to host the OpenMPI installation.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/04-configure-open-mpi.jpg" alt="Configure Open MPI" /></p>
+
+<p>Once OpenMPI is configured, you now need to run the <code>make all</code> command.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/05-make-open-mpi.jpg" alt="Compile OpenMPI" /></p>
+
+<p>Finally, Install OpenMPI by running the <code>sudo make install</code> command. We’ll need <code>sudo</code> since we need administrative privileges to install applications. You will be prompted for your password, which won’t show up as you type it – that’s okay, just hit the return key when you’re done.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/06-install-open-mpi.jpg" alt="Install OpenMPI" /></p>
+
+<p>That’s it! OpenMPI should be successfully installed. You should be able to see new folders in your <code>/usr/local</code> folder. You can take a look at this directory in your Finder. If you haven’t installed anything except OpenMPI it should look similar to the screenshot hereunder.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/07-user-local-directory-openmpi.jpg" alt="The /usr/local/ directory after OpenMPI installation" /></p>
+
+<h2 id="step-4--compiling-and-installing-john-the-ripper-from-source">Step 4 – Compiling and Installing John the Ripper from source</h2>
+
+<p>While OpenMPI took a little while to set up, it will be worth wile once we compile John, especially if you’re sporting a fast CPU on your machine!</p>
+
+<p>Before we start to compile John, you need the <a href="http://www.openwall.com/john/" title="John the Ripper download page">latest <em>Jumbo</em> package</a>. A Jumbo package is a <em>community-enhanced package</em> that implements some of the latest enhancements and tweaks from the John the Ripper community. Make sure you download the <em>UNIX</em> version and not the Windows version (in this case at least).</p>
+
+<p>Unpack the archive file in which ever way suits you best. Once again, place the folder somewhere predictable. I placed it in my home directory and renamed it to <em>jtr</em> make things simpler.</p>
+
+<p>Before we fire-up the terminal, we need to make some tweaks to the <em>Makefile</em> in our <em>src</em> directory (the <em>Makefile</em> is simply a file that tells the compiler how to build the program). For this we’ll need to have a good text-editor (you can use TextEdit if you like. But this should serve as an excuse to get your hands on a good text editor). If you like to work in the terminal, you can use <em>nano</em>, <em>vi</em> and the like. I’m using my favourite – <a href="http://www.sublimetext.com" title="Download SublimeText">SublimeText</a>.</p>
+
+<p>You’ll want to un-comment (remove the ‘#’ symbol at the front of the line) the two lines as follows (line numbers 23 and 24 at the time of writing) to enable OpenMPI in John.</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">#CC =  mpicc -DHAVE*MPI
+#MPIOBJ = john-mpi.o</code></pre></div>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/08-edit-makefile-jtr.jpg" alt="Edit John's Makefile" /></p>
+
+<p>We are now set to compile John. Simply fire-up a Terminal window and <code>cd</code> into the directory you placed John’s source and simply run <code>make clean macosx-x86-64</code> to compile John.</p>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/09-make-jtr.jpg" alt="Compile John" /></p>
+
+<h2 id="step-5--additional-configuration">Step 5 – Additional configuration</h2>
+
+<p>By default, John does not compete for CPU cycles, but makes use of idle CPU cycles. Allowing John to compete for a share of the CPU speeds things up. While you can opt not to do this if you want to run John in the background, it’s recommended if you’re concerned about speed. In order to make changes to this configuration, from the newly compiled <em>run</em> directory, load <code>john.conf</code> into your text editor and uncomment the following line (currently line number 20 at the time of writing).</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">#Idle = N</code></pre></div>
+
+<p><img src="/public/img/2013-05-16-supercharging-john-the-ripper-with-openmpi/10-configure-jtr.jpg" alt="Configure John" /></p>
+
+<h2 id="step-6--running-john">Step 6 – Running John</h2>
+
+<p>Let’s crack some passwords! First off, you’ll need a password list. If you don’t have one, just hash a few strings of characters using whatever hashing algorithm you like and throw it into a text file. hashes need to be one-per line.</p>
+
+<p>Simply <code>cd</code> into the <em>run</em> directory and start the command with <code>mpirun -np 8</code>. <em>8</em>, being the number of cores you want john to run on. You’ll need to append this with the actual command for John. So you can have something similar to the command hereunder, which will run 4 instances of John. Make sure you don’t omit the <code>./</code> in the command, or otherwise you’ll get an error thrown your way.</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">mpirun -np 4 ./john --wordlist --rules --format=raw-md5 /Users/Ian/sample-passwords.txt</code></pre></div>
+
+<div class="message">
+	<em>Note</em> &ndash; The example given above is a simple one – always make use of better dictionaries and rules than the defaults John comes bundled with.
+</div>
+
+<hr />
+
+<p>That ought to wrap things up. I feel obliged to say this – It’s up to you how use password cracking tools, just do so responsibly and ethically.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

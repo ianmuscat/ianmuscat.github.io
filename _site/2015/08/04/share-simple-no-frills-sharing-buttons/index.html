@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      'Share' – Simple, no-frills sharing buttons &middot; Ian Muscat
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>My Name is Ian, I am a technophile with a special interest in web technologies working and living on the island of <a href="https://en.wikipedia.org/wiki/Malta" target="_blank">Malta</a> <a href="/about">&hellip;</a></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Blog</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Ian Muscat</a>&nbsp;
+            <small>Sporadic Ramblings of a Technophile</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">'Share' – Simple, no-frills sharing buttons</h1>
+  <small class="post-date">04 Aug 2015</small>
+  <p><img src="/public/img/2015-08-04-share-simple-no-frills-sharing-buttons/cover.jpg" alt="'Share' - Simple, no-frills sharing buttons" /></p>
+
+<p>I don’t understand why every sharing plugin or widget I’ve come across needs to be so complicated, load a ton of JavaScript and/or just be downright ugly.</p>
+
+<p>I decided to make my own super simple, no-frills sharing buttons.</p>
+
+<p>The icons are SVGs, so that avoids having another couple round-trips to the server and has the added benefit of playing nice with retina or other hi-DPI displays since they’re vectors. No server-side voodoo, all done in JavaScript. Since to me only Facebook, Twitter and (perhaps) Google+ are the only relevant social networks around, I’ve just limited it to the big three, but you can easily extend it to fit your requirements.</p>
+
+<p>If you want to use this, just make sure to swap out your site’s <em>postamble</em> (that’s the bit at the end) of your site’s <code>&lt;title&gt;</code> tag and substitute your Twitter username. You can also run it through a minifier to compress it further if you like.</p>
+
+<script src="https://gist.github.com/ianmuscat/46958b29ba38b9630b6f.js"></script>
+
+
+</div>
+
+<style>
+	.share-wrapper h5{
+		color: #5a5a5a;
+	}
+	
+	.share-wrapper a svg{
+		cursor: pointer;
+	}
+	
+	.share-wrapper > a:first-of-type{
+		margin-left: -10px;
+	}
+	
+	.share-wrapper a:hover{
+		opacity: 0.8;
+	}
+</style>
+<div class="share-wrapper" style="margin-top:30px">
+	<h5>Share this post</h5>
+	<a onclick="share('facebook')"><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" version="1.1"><g transform="translate(0,-2)"><path d="m13.100548 21.878205 0-4.121807-1.386598 0-1.386598 0 0-1.595537 0-1.595538 1.386598 0 1.386598 0 0-1.42184c0-0.812118 0.01762-1.548538 0.0411-1.717299 0.209733-1.5079269 0.983257-2.5828649 2.238244-3.1103985 0.558537-0.234783 0.891905-0.2909945 1.850418-0.31201 0.78411-0.017196 1.878322 0.026183 2.29988 0.091163l0.142462 0.02196 0 1.3955497 0 1.3955515-1.054193 0.01957c-1.178757 0.02189-1.440128 0.06251-1.749474 0.271893-0.09571 0.06479-0.222643 0.197629-0.282065 0.295208-0.187771 0.308344-0.21792 0.56803-0.218648 1.883486l-0.000667 1.187155 1.576542 0 1.576544 0-0.000076 0.08548c-0.000036 0.047-0.08548 0.743637-0.18988 1.548053-0.1044 0.804419-0.189845 1.483947-0.189881 1.510064-0.000036 0.03711-0.302744 0.04747-1.386662 0.04747l-1.386599 0 0 4.121807 0 4.121807-1.633527 0-1.633527 0 0-4.121807 0.000011 0z" fill="#3b5998"/></g></svg></a>
+	<a onclick="share('twitter')"><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" version="1.1"><g transform="translate(0,-2)"><path d="m25.044528 10.769623c-0.739079 0.327853-1.533502 0.549336-2.367098 0.648978 0.850873-0.510063 1.504471-1.317745 1.812136-2.2802132-0.796433 0.4723961-1.678445 0.8153165-2.617307 1.0001372-0.751734-0.8010532-1.822884-1.3014723-3.008341-1.3014723-2.276094 0-4.121575 1.8452833-4.121575 4.1213763 0 0.323034 0.03646 0.637629 0.10677 0.939266C11.423727 13.725834 8.3868599 12.084956 6.354046 9.5913971 5.9992719 10.200097 5.7959709 10.908037 5.7959709 11.663387c0 1.429941 0.7276266 2.691435 1.8335304 3.430512-0.6755956-0.02139-1.3111133-0.206817-1.8667779-0.515485-0.0004684 0.01718-0.0004684 0.03445-0.0004684 0.05182 0 1.996857 1.420701 3.662543 3.3061634 4.041423-0.3458355 0.09421-0.7099503 0.144539-1.0858173 0.144539-0.2655779 0-0.5237212-0.02591-0.7754378-0.07392 0.5245259 1.637363 2.0465759 2.828947 3.8501757 2.862094-1.4105552 1.105502-3.1876379 1.764424-5.1187023 1.764424-0.3326759 0-0.6607302-0.01958-0.9831599-0.05766 1.8239893 1.169487 3.9903968 1.851813 6.3179192 1.851813C18.854314 25.162948 23 18.882799 23 13.436244c0-0.178691-0.004-0.356381-0.01195-0.533264 0.805169-0.580977 1.503868-1.306797 2.05642-2.133363z" fill="#55acee"/></g></svg></a>
+	<a onclick="share('googleplus')"><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="30" height="30" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><path fill="#DC4A38" d="M15.7 17.2l-0.9-0.7c-0.3-0.2-0.6-0.5-0.6-1.1 0-0.6 0.4-0.9 0.7-1.2 1-0.8 2.1-1.7 2.1-3.6 0-1.9-1.2-2.9-1.8-3.4h1.5l1.6-1h-4.9c-1.4 0-3.3 0.3-4.7 1.5 -1.1 0.9-1.6 2.2-1.6 3.4 0 2 1.5 3.9 4.1 3.9 0.3 0 0.5 0 0.8-0.1 -0.1 0.3-0.2 0.6-0.2 1 0 0.8 0.4 1.3 0.8 1.7 -1.1 0.1-3.2 0.2-4.8 1.2 -1.5 0.9-1.9 2.2-1.9 3.1 0 1.9 1.7 3.6 5.4 3.6 4.3 0 6.6-2.4 6.6-4.7C17.8 19 16.8 18.1 15.7 17.2zM12.5 14.3c-2.1 0-3.1-2.8-3.1-4.5 0-0.7 0.1-1.3 0.5-1.9 0.4-0.5 1.1-0.8 1.8-0.8 2.1 0 3.1 2.8 3.1 4.6 0 0.5 0 1.3-0.6 1.8C13.8 14 13.1 14.3 12.5 14.3zM12.5 24.4c-2.7 0-4.4-1.3-4.4-3.1 0-1.8 1.6-2.4 2.1-2.6 1-0.4 2.4-0.4 2.6-0.4 0.3 0 0.4 0 0.6 0 1.9 1.4 2.7 2 2.7 3.3C16.2 23.2 14.9 24.4 12.5 24.4z"/><polygon fill="#DC4A38" points="22 14.3 22 11.8 20.8 11.8 20.8 14.3 18.3 14.3 18.3 15.5 20.8 15.5 20.8 18 22 18 22 15.5 24.6 15.5 24.6 14.3 "/></svg></a>
+</div>
+<script>
+function share(network) {
+	switch (network) {
+		case "facebook":
+			var url = "https://www.facebook.com/sharer/sharer.php?u=";
+			var title = "Share on Facebook";
+			break;
+		case "twitter":
+			// Change ' - Site Title' to the postamble of your site's <title>
+			var postTitle = document.title.replace(/( - Site Title)+$/g, "");
+			// Change 'twitter_username' to your Twitter username
+			var url = "https://twitter.com/intent/tweet?via=twitter_username&text="+encodeURIComponent(postTitle) + encodeURIComponent(" – ");
+			var title = "Share on Twitter";
+			break;
+		case "googleplus":
+			var url = "https://plus.google.com/share?url=";
+			var title = "Share on Google+";
+			break;
+	}
+	url += encodeURIComponent(location.href);
+	var w = 680;
+	var h = 520;
+	var left = (screen.width / 2) - (w / 2);
+	var top = (screen.height / 2) - (h / 2);
+	return window.open(url, title, "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" + w + ", height=" + h + ", top=" + top + ", left=" + left);
+};
+</script>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/25/installing-google-firing-range/">
+            Installing Google Firing Range
+            <small>25 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2013/05/16/supercharging-john-the-ripper-with-openmpi/">
+            Supercharging John the Ripper with OpenMPI
+            <small>16 May 2013</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

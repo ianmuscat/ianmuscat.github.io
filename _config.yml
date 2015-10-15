@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Ian Muscat
+tagline:             'Sporadic Ramblings of a Technophile'
+description:         'My Name is Ian, I am a technophile with a special interest in web technologies working and living on the island of <a href="https://en.wikipedia.org/wiki/Malta" target="_blank">Malta</a> <a href="/about">&hellip;</a>'
+url:                 https://www.ianmuscat.com
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Ian Muscat
+  url:               https://twitter.com/ianmuscat
+  email:             ianmuscat@gmail.com
+
+# Custom vars
+version:             1.0.0
