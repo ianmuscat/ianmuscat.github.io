@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-I'm Ian Muscat. I am a technophile with a special interest in web technologies working and living on the island of [Malta].
+I'm Ian Muscat. I am a technophile with a special interest in web technologies working and living on the island of [Malta](https://en.wikipedia.org/wiki/Malta).
 
 I spend most of my time making things, breaking things and reading about new technology. My areas of interest include information security, mobile first website development and website performance.
 
