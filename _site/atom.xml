@@ -4,13 +4,32 @@
  <title>Ian Muscat</title>
  <link href="https://www.ianmuscat.com/atom.xml" rel="self"/>
  <link href="https://www.ianmuscat.com/"/>
- <updated>2015-10-15T13:58:09+02:00</updated>
+ <updated>2015-10-19T01:08:31+02:00</updated>
  <id>https://www.ianmuscat.com</id>
  <author>
    <name>Ian Muscat</name>
    <email>ianmuscat@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Solving mixed content issues</title>
+   <link href="https://www.ianmuscat.com/2015/10/18/solving-mixed-content-issues/"/>
+   <updated>2015-10-18T00:00:00+02:00</updated>
+   <id>https://www.ianmuscat.com/2015/10/18/solving-mixed-content-issues</id>
+   <content type="html">&lt;p&gt;A while ago I was observing some HTTP requests fly through Google Chrome Dev Tools’ “Network” tab, when I noticed an interesting HTTP header being sent by the browser for each request – &lt;code&gt;Upgrade-Insecure-Requests: 1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;It turns out that Google Chrome 43 and newer sends this header automatically. The HTTP request header is closely related to the &lt;code&gt;Content-Security-Policy: upgrade-insecure-requests&lt;/code&gt; HTTP response header.&lt;/p&gt;
+
+&lt;p&gt;The “Upgrade Insecure Requests” Content Security Policy is a &lt;a href=&quot;http://www.w3.org/TR/upgrade-insecure-requests&quot; target=&quot;_blank&quot;&gt;W3 specification&lt;/a&gt; that can be used to instruct a browser to automatically upgrade any insecure HTTP requests to the secure HTTPS alternative before the browser does any fetching of resources – essentially it solves annoying &lt;a href=&quot;https://developer.mozilla.org/en/docs/Security/MixedContent&quot; target=&quot;_blank&quot;&gt;mixed-content&lt;/a&gt; issues you face when a webpage is served over HTTPS. Even if a single image has a &lt;code&gt;src&lt;/code&gt; attribute with referencing the HTTP protocol as opposed to the HTTPS protocol, you’ll still get the dreaded mixed content warnings in the browser’s address bar.&lt;/p&gt;
+
+&lt;p&gt;It turns out that the browser sends the &lt;code&gt;Upgrade-Insecure-Requests: 1&lt;/code&gt; header to indicate to the server that it supports the “Upgrade Insecure Requests” Content Security Policy, and that it is actually preferred.&lt;/p&gt;
+
+&lt;p&gt;Ideally, Content Security Policies should be enabled via an HTTP response header which is served by the web server to the browser. However, in cases where this is not possible (as is the case with GitHub pages for instance), you can use the &lt;code&gt;&amp;lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&amp;gt;&lt;/code&gt; tag in your HTML’s &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; as an alternative.&lt;/p&gt;
+
+&lt;p&gt;While this header does help solve mixed content issues, it should not be treated as a silver bullet – you can not just set this header and forget about mixed content issues. For one thing, older browsers might ignore this header and you should still try your best to use &lt;a href=&quot;http://www.paulirish.com/2010/the-protocol-relative-url/&quot; target=&quot;_blank&quot;&gt;protocol-relative or HTTPS URLs&lt;/a&gt; where you can.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>'Share' – Simple, no-frills sharing buttons</title>

@@ -101,6 +101,29 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2015/10/18/solving-mixed-content-issues/">
+        Solving mixed content issues
+      </a>
+    </h1>
+
+    <small class="post-date">18 Oct 2015</small>
+
+    <p>A while ago I was observing some HTTP requests fly through Google Chrome Dev Tools’ “Network” tab, when I noticed an interesting HTTP header being sent by the browser for each request – <code>Upgrade-Insecure-Requests: 1</code>.</p>
+
+<p>It turns out that Google Chrome 43 and newer sends this header automatically. The HTTP request header is closely related to the <code>Content-Security-Policy: upgrade-insecure-requests</code> HTTP response header.</p>
+
+<p>The “Upgrade Insecure Requests” Content Security Policy is a <a href="http://www.w3.org/TR/upgrade-insecure-requests" target="_blank">W3 specification</a> that can be used to instruct a browser to automatically upgrade any insecure HTTP requests to the secure HTTPS alternative before the browser does any fetching of resources – essentially it solves annoying <a href="https://developer.mozilla.org/en/docs/Security/MixedContent" target="_blank">mixed-content</a> issues you face when a webpage is served over HTTPS. Even if a single image has a <code>src</code> attribute with referencing the HTTP protocol as opposed to the HTTPS protocol, you’ll still get the dreaded mixed content warnings in the browser’s address bar.</p>
+
+<p>It turns out that the browser sends the <code>Upgrade-Insecure-Requests: 1</code> header to indicate to the server that it supports the “Upgrade Insecure Requests” Content Security Policy, and that it is actually preferred.</p>
+
+<p>Ideally, Content Security Policies should be enabled via an HTTP response header which is served by the web server to the browser. However, in cases where this is not possible (as is the case with GitHub pages for instance), you can use the <code>&lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"&gt;</code> tag in your HTML’s <code>&lt;head&gt;</code> as an alternative.</p>
+
+<p>While this header does help solve mixed content issues, it should not be treated as a silver bullet – you can not just set this header and forget about mixed content issues. For one thing, older browsers might ignore this header and you should still try your best to use <a href="http://www.paulirish.com/2010/the-protocol-relative-url/" target="_blank">protocol-relative or HTTPS URLs</a> where you can.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2015/08/04/share-simple-no-frills-sharing-buttons/">
         'Share' – Simple, no-frills sharing buttons
       </a>
